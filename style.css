@@ -1,0 +1,409 @@
+/* CSS Variables for the Mabusela Bags Color Palette */
+:root {
+    --primary-black: #111111;
+    --accent-gold: #D4AF37;
+    --accent-gold-hover: #AA820A;
+    --warm-brown: #5C4033;
+    --soft-beige: #F5F2EB;
+    --pure-white: #FFFFFF;
+    --dark-grey: #333333;
+    --light-grey: #E5E5E5;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--soft-beige);
+    color: var(--primary-black);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+/* Navigation Bar */
+header {
+    background-color: var(--primary-black);
+    color: var(--pure-white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid var(--accent-gold);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    color: var(--pure-white);
+}
+
+.logo span {
+    color: var(--accent-gold);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav ul li a {
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: var(--accent-gold);
+}
+
+/* Hero Banner Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(92, 64, 51, 0.7)), 
+                url('https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--pure-white);
+    padding: 0 20px;
+    flex-grow: 1;
+}
+
+.hero h2 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: var(--accent-gold);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.btn-gold {
+    background-color: var(--accent-gold);
+    color: var(--primary-black);
+    padding: 12px 30px;
+    font-weight: bold;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-gold:hover {
+    background-color: var(--accent-gold-hover);
+    color: var(--pure-white);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* Container Section Setup */
+main {
+    padding: 60px 5%;
+    flex-grow: 1;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+    position: relative;
+    color: var(--warm-brown);
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-gold);
+    margin: 10px auto 0;
+}
+
+/* About Section */
+.about-container {
+    background: var(--pure-white);
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--warm-brown);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-block {
+    margin-bottom: 25px;
+}
+
+.about-block h3 {
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: var(--pure-white);
+    border: 1px solid var(--light-grey);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.product-img-placeholder {
+    height: 250px;
+    background-color: var(--warm-brown);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--soft-beige);
+    position: relative;
+    font-weight: bold;
+    background-size: cover;
+    background-position: center;
+}
+
+.img-backpack { background-image: url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=80'); }
+.img-tote { background-image: url('https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=500&q=80'); }
+.img-duffel { background-image: url('https://images.unsplash.com/photo-1553456558-aff63285bdd1?auto=format&fit=crop&w=500&q=80'); }
+.img-handbag { background-image: url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=500&q=80'); }
+
+.product-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-title {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--primary-black);
+}
+
+.product-price {
+    font-size: 1.2rem;
+    color: var(--warm-brown);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.btn-add-cart {
+    background-color: var(--primary-black);
+    color: var(--pure-white);
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: auto;
+    transition: background 0.3s;
+}
+
+.btn-add-cart:hover {
+    background-color: var(--accent-gold);
+    color: var(--primary-black);
+}
+
+/* Reviews Section */
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 30px auto 0;
+}
+
+.review-card {
+    background-color: var(--pure-white);
+    padding: 25px;
+    border-left: 4px solid var(--accent-gold);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.stars {
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+}
+
+.review-text {
+    font-style: italic;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.reviewer-name {
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--dark-grey);
+}
+
+/* Shopping Cart Section */
+.cart-section {
+    background-color: var(--pure-white);
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 30px;
+    border-radius: 4px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    border: 1px solid var(--light-grey);
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.cart-table th, .cart-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--light-grey);
+}
+
+.cart-table th {
+    background-color: var(--soft-beige);
+    font-weight: bold;
+}
+
+.cart-total-row {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+}
+
+/* Contact Section Form */
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--pure-white);
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--light-grey);
+    background-color: var(--soft-beige);
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 4px;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-black);
+    color: var(--pure-white);
+    padding: 40px 5% 20px;
+    text-align: center;
+    border-top: 5px solid var(--accent-gold);
+    margin-top: auto;
+}
+
+.footer-socials {
+    margin-bottom: 20px;
+}
+
+.footer-socials a {
+    margin: 0 10px;
+    display: inline-block;
+    background-color: var(--dark-grey);
+    color: var(--accent-gold);
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.footer-socials a:hover {
+    background-color: var(--accent-gold);
+    color: var(--primary-black);
+}
+
+.footer-info {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 15px;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .hero h2 {
+        font-size: 2rem;
+    }
+}

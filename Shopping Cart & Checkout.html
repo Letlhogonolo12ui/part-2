@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mabusela Bags | Cart</title>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>Mabusela <span>Bags</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Home.html" class="active">Home</a></li>
+                <li><a href="About Us.html">About Us</a></li>
+                <li><a href="Products & Reviews.html">Products</a></li>
+                <li><a href="Shopping Cart & Checkout.html">Cart</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="section-title">Your Shopping Cart</h2>
+        <div class="cart-section">
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Product Item</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cartTableBody">
+                    <!-- Loaded dynamically via javascript -->
+                </tbody>
+            </table>
+            <div class="cart-total-row">
+                Total Amount: <span id="cartTotalValue">R0.00</span>
+            </div>
+            <div style="text-align: right; margin-top: 20px;">
+                <button class="btn-gold" style="width: 100%; max-width: 250px;" onclick="checkoutAlert()">Buy Online Now</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mabusela Bags. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function displayCart() {
+            let cart = JSON.parse(localStorage.getItem('mabusela_cart')) || [];
+            const tbody = document.getElementById('cartTableBody');
+            tbody.innerHTML = ""; 
+
+            if(cart.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="3" style="text-align: center; color: #888; padding: 30px;">Your shopping cart is currently empty.</td></tr>`;
+                document.getElementById('cartTotalValue').innerText = "R0.00";
+                return;
+            }
+
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.price;
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${item.name}</strong></td>
+                    <td>R${item.price.toFixed(2)}</td>
+                    <td><button style="background: none; border: none; color: #cc0000; cursor: pointer; text-decoration: underline;" onclick="removeItem(${index})">Remove</button></td>
+                `;
+                tbody.appendChild(tr);
+            });
+            document.getElementById('cartTotalValue').innerText = "R" + total.toFixed(2);
+        }
+
+        function removeItem(index) {
+            let cart = JSON.parse(localStorage.getItem('mabusela_cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('mabusela_cart', JSON.stringify(cart));
+            displayCart();
+        }
+
+        function checkoutAlert() {
+            let cart = JSON.parse(localStorage.getItem('mabusela_cart')) || [];
+            if(cart.length === 0) {
+                alert("Your cart is empty!");
+            } else {
+                alert("Thank you for your order! Routing to payment gateway...");
+                localStorage.removeItem('mabusela_cart');
+                displayCart();
+            }
+        }
+
+        // Run cart configuration on page initialization
+        window.onload = displayCart;
+    </script>
+</body>
+</html>

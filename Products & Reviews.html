@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mabusela Bags | Products</title>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>Mabusela <span>Bags</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Home.html" class="active">Home</a></li>
+                <li><a href="About Us.html">About Us</a></li>
+                <li><a href="Products & Reviews.html">Products</a></li>
+                <li><a href="Shopping Cart & Checkout.html">Cart</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="section-title">Our Bags Collection</h2>
+        <div class="products-grid">
+            
+            <div class="product-card">
+                <div class="product-img-placeholder img-backpack"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Everyday Scholar Backpack</h3>
+                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 10px;">Perfect for students & modern daily routines.</p>
+                    <div class="product-price">R450.00</div>
+                    <button class="btn-add-cart" onclick="addToCart('Everyday Scholar Backpack', 450)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-placeholder img-tote"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Classic Corporate Tote</h3>
+                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 10px;">Sleek styling built for workplace essentials.</p>
+                    <div class="product-price">R650.00</div>
+                    <button class="btn-add-cart" onclick="addToCart('Classic Corporate Tote', 650)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-placeholder img-duffel"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Voyager Weekender Duffel</h3>
+                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 10px;">Spacious layout with enhanced reinforcement for long trips.</p>
+                    <div class="product-price">R890.00</div>
+                    <button class="btn-add-cart" onclick="addToCart('Voyager Weekender Duffel', 890)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-placeholder img-handbag"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Gold Accent Luxury Handbag</h3>
+                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 10px;">Bold fashion piece with signature hardware detail.</p>
+                    <div class="product-price">R1200.00</div>
+                    <button class="btn-add-cart" onclick="addToCart('Gold Accent Luxury Handbag', 1200)">Add to Cart</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="reviews-container">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"The corporate tote handles my laptop and files effortlessly. Incredibly strong!"</p>
+                <div class="reviewer-name">- Lerato M.</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Beautiful structures! I carry my textbook load every day and it still looks brand new."</p>
+                <div class="reviewer-name">- Thabo S.</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mabusela Bags. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function addToCart(name, price) {
+            // Retrieve existing cart data or initialize empty list
+            let cart = JSON.parse(localStorage.getItem('mabusela_cart')) || [];
+            cart.push({ name: name, price: price });
+            localStorage.setItem('mabusela_cart', JSON.stringify(cart));
+            alert(name + " has been added to your cart!");
+        }
+    </script>
+</body>
+</html>
